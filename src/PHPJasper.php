@@ -246,9 +246,10 @@ class PHPJasper
         chdir($this->pathExecutable);
         exec($this->command, $output, $returnVar);
 
-       if ($returnVar !== 0) {
-           \Log::alert($returnVar + $this->command + $output);
-        }
+        if ($returnVar !== 0) {
+             \Log::alert($this->command);
+       }
+
 
         return $output;
     }
