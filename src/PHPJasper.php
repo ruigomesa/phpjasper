@@ -246,9 +246,9 @@ class PHPJasper
         chdir($this->pathExecutable);
         exec($this->command, $output, $returnVar);
 
-        //if ($returnVar !== 0) {
-        //    throw new Exception\ErrorCommandExecutable();
-        //}
+       if ($returnVar !== 0) {
+           \Log::alert($returnVar + $this->command + $output);
+        }
 
         return $output;
     }
